@@ -7,7 +7,10 @@ public class InputOutputService {
     private Scanner scanner;
 
     public String readValue() {
-        return null;
+        System.out.println("Enter city: ");
+        scanner = new Scanner(System.in);
+        String city = scanner.nextLine();
+        return city;
     }
 
     public void print(String value) {

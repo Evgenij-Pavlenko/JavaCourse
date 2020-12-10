@@ -1,6 +1,8 @@
 package de.telran.weather;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import de.telran.weather.service.InputOutputService;
+import de.telran.weather.service.WeatherGateway;
 import de.telran.weather.service.WeatherService;
 
 public class WeatherForecastApp {
@@ -18,7 +20,11 @@ public class WeatherForecastApp {
         inputOutputService.print(result);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+        WeatherForecastApp weather = new WeatherForecastApp(new InputOutputService(),
+                new WeatherService(new WeatherGateway(new ObjectMapper())));
+        weather.execute();
 
     }
 }
